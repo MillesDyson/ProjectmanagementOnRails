@@ -3,25 +3,25 @@ class TasksController < ApplicationController
   before_action :set_project
   before_action :set_task, only: %i[ show edit update destroy ]
 
-  # GET /tasks or /tasks.json
+  # Mostrar todas as tarefas
   def index
     @tasks = @project.tasks
   end
 
-  # GET /tasks/1 or /tasks/1.json
+  # Ir para Mostrar
   def show
   end
 
-  # GET /tasks/new
+  # Ir para pagina de novo
   def new
     @task = Task.new
   end
 
-  # GET /tasks/1/edit
+  # Ir para pagina Editar
   def edit
   end
 
-  # POST /tasks or /tasks.json
+  # Criar uma nova tarefa
   def create
     @task = Task.new(task_params)
 
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tasks/1 or /tasks/1.json
+  # Atualizar na opção Edit
   def update
     respond_to do |format|
       if @task.update(task_params)
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1 or /tasks/1.json
+  # DELETE
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
@@ -60,7 +60,7 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Fatoração + Indicação de ID
     def set_task
       @task = Task.find(params[:id])
     end
@@ -73,7 +73,7 @@ class TasksController < ApplicationController
       @project = Project.find(params[:project_id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Permissão de parâmetros autorizados
     def task_params
       output = params.require(:task).permit(:name, :description, :start_date, :project_id, :end_date, :status)
       output.merge(project_id: @project.id)

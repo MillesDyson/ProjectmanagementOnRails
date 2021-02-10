@@ -9,6 +9,7 @@ class Task < ApplicationRecord
     ['Finalizado', 'Finalizado']
   ]
 
+  # Metodos para decidir STATUS do projeto
   def complete
   status == 'Finalizado'
   end

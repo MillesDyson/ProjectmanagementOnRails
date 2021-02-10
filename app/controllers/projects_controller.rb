@@ -1,21 +1,21 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
 
-  # GET /projects or /projects.json
+  # Nostrar todos projetos
   def index
     @projects = Project.all
   end
 
-  # GET /projects/new
+  # Ir para pagina Novo projeto
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
+  # Ir para pagina editar
   def edit
   end
 
-  # POST /projects or /projects.json
+  # Criar novo projeto
   def create
     @project = Project.new(project_params)
 
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1 or /projects/1.json
+  # Atualização na opção Editar
   def update
     respond_to do |format|
       if @project.update(project_params)
@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
+  # DELETE
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
@@ -54,12 +54,12 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Fatoração + Indicação de ID
     def set_project
       @project = Project.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Permissão de parâmetros autorizados
     def project_params
       params.require(:project).permit(:name, :description, :start_date, :end_date)
     end
