@@ -1,26 +1,34 @@
+// Ajuste de posição de página para Footer
 html {
     position: relative;
     min-height: 100%;
     width: 100%;
 }
+
+// Config Body
 body {
     margin: 0 0 132px;    
     background-color: lightgray;
 }
 
+// Ajustes da landing page
 #home {
     background-color:#73d4ff;
 }
 
+// Ajustes do menu de navegação
 .nav-link {
     font-family: 'Hammersmith One', sans-serif;
     color: white;
 
 }
+
+// Ajustes do formulário
 .form-control {
     width: 30%;
 }
 
+// Ajustes do rodapé
 footer {
     position: absolute;
     left: 0;
@@ -31,11 +39,14 @@ footer {
     background-color:#1d75a7;
 }
 
+// Ajustes do tamanho das Rows da landing page
 .padding{
     padding: 40px 20px ;
     width: 100%;
 }
 
+
+// Ajustes das linhas e colunas das tabelas
 th {
     text-align: center;
   }
@@ -44,6 +55,7 @@ td {
     text-align: center; 
   }
 
+  // Ajustes do texto principal e do botão de chamada
 .landingtext {
     padding-top: 50px;
     font-family: 'Hammersmith One', sans-serif;
@@ -56,14 +68,17 @@ td {
 
 }
 
+// Ajutes dos cards da landing page
 .indexblocks {
     background-color:#FFF;
     height: 100%;
     box-shadow: 5px 10px #888888;
     font-family: 'Hammersmith One', sans-serif;
+    vertical-align: middle;
 
 }
 
+// Ajutes dos cards do dashboard
 .dashboard {
     background-color: lightgray;
 
