@@ -1,5 +1,7 @@
 Este repositório refere-se a um sistema web de gerenciamento de projetos. O programa simula um site empresarial que produz soluções para gerenciamento de projetos auxiliando em várias etapas em uma empresa.
 
+Tecnologias : Utilizei Ruby On Rails para a criação da aplicação e a biblioteca Bootstrap para estilização. Além da criação de layouts e configurações em HTML e CSS.
+
 Hospedei o código no heroku para a visualização rápida da compilação dos arquivos.
 https://sheltered-plains-13557.herokuapp.com/
 
