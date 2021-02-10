@@ -1,0 +1,76 @@
+<div class="dashboard">
+  <div class="row m-3">
+    <div class="col-md-3 mb-3">
+      <div class="card ">
+         <div class="card-body m-1">
+           <h3 class="card-title  text-dar" style="text-align: center">Dashboard</h3>
+         </div>
+          <div>
+              <% @projects.each do |project| %>
+                <%= link_to project_tasks_path(project), class:'text-decoration-none' do%>
+                  <div class="card m-1">
+                    <div class="card-body">
+                      <span class="card-title text-dark cardwidth"><b><%= project.name %></b></span><br><span class="badge badge-pill bg-<%= project.badgecolor %>" style="text-align: center"><%= project.status %></span>
+                      <br>
+                      <div class="progress mt-1 mb-0">
+                       <div class="progress-bar" role="progressbar" style="width: <%= project.complete %>%;" aria-valuenow="<%= project.complete %>" aria-valuemin="0" aria-valuemax="100"><%= project.complete %>%
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+
+
+  <div class="col-md-9 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title mb-3">Projetos</h1>
+          <div>
+            <table class="table table-light table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Inicio</th>
+                  <th>Término</th>
+                  <th>Status</th>
+                  <th>Progresso</th>
+                  <th>Atrasado?</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+          </div>
+            <div>
+              <tbody>
+                <% @projects.each do |project| %>
+                  <tr>
+                    <td><%= project.name %></td>
+                    <td><%= project.description %></td>
+                    <td><%= l project.start_date, format: :euro %></td>
+                    <td><%= l project.end_date, format: :euro %></td>
+                    <td><%= project.status %></td>
+                    <td><%= project.complete %>%</td>
+                    <td><%= project.delay %></td>
+                    <td><%= link_to 'Tarefas', project_tasks_path(project), class:"btn btn-primary btn-sm" %></td>
+                    <td><%= link_to 'Editar', edit_project_path(project), class:"btn btn-primary btn-sm" %></td>
+                    <td><%= link_to 'Deletar', project, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm"  %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </div>
+          </table>
+            <div>
+              <%= link_to 'Novo Projeto', new_project_path, class:"btn btn-primary btn-sm mb-3"%>
+            </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+

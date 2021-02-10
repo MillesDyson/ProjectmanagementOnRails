@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row m-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h1>Tarefas</h1>
+
+          <table class="table table-light table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Inicio</th>
+                <th>Término</th>
+                <th>Status</th>
+                <th>Projeto ID</th>
+                <th colspan="2"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @tasks.each do |task| %>
+                <tr>
+                  <td><%= task.name %></td>
+                  <td><%= task.description %></td>
+                  <td><%= l task.start_date, format: :euro  %></td>
+                  <td><%= l task.end_date, format: :euro %></td>
+                  <td><%= task.status %></td>
+                  <td><%= task.project_id %></td>
+                  <td><%= link_to 'Editar', edit_project_task_path(@project, task), class:"btn btn-primary btn-sm"  %></td>
+                  <td><%= link_to 'Deletar', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+
+          <div>
+            <%= link_to 'Nova tarefa', new_project_task_path, class:"btn btn-primary btn-sm mb-3" %>
+            <%= link_to 'Voltar', projects_path, class:"btn btn-primary btn-sm mb-3" %>
+          </div>
+        </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
